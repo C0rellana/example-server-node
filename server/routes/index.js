@@ -1,3 +1,5 @@
+import middleware from '../middleware';
+
 export default (app) => {
-    app.get('/', (req, res)=> res.json());
+    app.get('/', middleware, (req, res) => res.json('Hello World!'));
 };
