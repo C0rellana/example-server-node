@@ -1,0 +1,66 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "app",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "babel-node index.js",
+    "start-dev": "nodemon --exec ' npm run lint && babel-node index.js'",
+    "sonar": "node sonar-project.js",
+    "test": "cross-env NODE_ENV=test jest --coverage  --testTimeout=10000 --runInBand --detectOpenHandles"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "models/index.js"
+    ],
+    "testResultsProcessor": "jest-sonar-reporter"
+  },
+  "jestSonar": {
+    "reportPath": "coverage",
+    "reportFile": "test-reporter.xml",
+    "indent": 4
+  },
+  "author": "autored",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "install": "^0.13.0",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "npm": "^6.14.2",
+    "prettier": "^2.3.2",
+    "regenerator-runtime": "^0.13.5",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.8.7",
+    "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "javascript-obfuscator": "^2.12.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
+  }
+}

@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  app:
+    container_name: app
+    build: ./
+    image: app
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www
+    env_file: 
+      - general.env
+      - environment.env
+    networks:
+      - network
+      
+networks:
+  network:
